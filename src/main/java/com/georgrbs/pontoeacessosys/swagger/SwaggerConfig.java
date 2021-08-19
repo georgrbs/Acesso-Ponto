@@ -24,7 +24,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.georgrbs.pontoeacessosys"))
-                .paths(PathSelectors.ant("/xxx"))
+                .paths(PathSelectors.ant("/**"))
                 .build()
                 .apiInfo(apiInfo())
                 .globalOperationParameters(
@@ -38,10 +38,12 @@ public class SwaggerConfig {
                                         .build()));
     }
 
+    //Link: http://127.0.0.1:8081/swagger-ui.html#/**
+
     @Bean
     public ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("API-REST")
+                .title("SISTEMA ACESSO PONTO API-REST")
                 .description(" Acesso ponto desenvolvido na super live code da DIO")
                 .version("1.0.0")
                 .license("Apache License Version 2.0")
